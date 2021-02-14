@@ -1,0 +1,11 @@
+<launch>
+  <arg name="urdf_file" default="$(find xacro)/xacro --inorder '$(find marvel_v1)/description/urdf/marvel_v1.xacro'"/>
+  <param name="robot_description" command="$(arg urdf_file)"/>
+
+  <include file="$(find marvel_v1)/bringup/launch/includes/description.launch.xml">
+  </include>
+
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+    <param name="publish_frequency" type="double" value="50.0" />
+  </node>
+</launch>

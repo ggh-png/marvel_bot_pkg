@@ -1,0 +1,20 @@
+<launch>
+  <!-- Arguments -->
+  <arg name="configuration_basename" default="turtlebot3_lds_2d.lua"/>
+  <!-- Gmapping -->
+  <node pkg="gmapping" type="slam_gmapping" name="marvel_v1_slam_gmapping" output="screen">
+    <rosparam command="load" file="$(find marvel_v1)/slam/config/gmapping_params.yaml" />
+  </node>
+
+  <include file="$(find marvel_v1)/bringup/launch/marvel_v1_robot.launch">
+  </include>
+
+  <node pkg="tf" type="static_transform_publisher" name="odom"
+    args="0.0 0.0 0.0 0.0 0.0  0.0 /odom base_footprint 40" />
+  <node
+    name="rviz"
+    pkg="rviz"
+    type="rviz"
+    args="-d $(find marvel_v1)/slam/rviz/gmapping.rviz" />
+
+</launch>

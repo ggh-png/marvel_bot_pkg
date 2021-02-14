@@ -1,0 +1,7 @@
+<launch>
+  <include file="$(find marvel_v1)/bringup/launch/marvel_v1_model.launch">
+  </include>
+  <include file="$(find marvel_v1)/bringup/launch/marvel_v1_lidar.launch">
+  </include>
+
+</launch>
