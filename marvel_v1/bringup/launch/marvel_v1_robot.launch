@@ -3,5 +3,9 @@
   </include>
   <include file="$(find marvel_v1)/bringup/launch/marvel_v1_lidar.launch">
   </include>
+  <include file="$(find rf2o_laser_odometry)/launch/rf2o_laser_odometry.launch">
+  </include>
+  <include file="$(find mpu6050_serial_to_imu)/launch/demo.launch">
+  </include>
 
 </launch>
